@@ -1,0 +1,12 @@
+aws emr create-cluster ^
+--release-label emr-5.0.0 ^
+--termination-protected ^
+--applications Name=Hadoop Name=Phoenix Name=HBase Name=ZooKeeper ^
+--ec2-attributes KeyName=nithin_keypair,InstanceProfile=EMR_EC2_DefaultRole,SubnetId=subnet-4f6e8416,EmrManagedSlaveSecurityGroup=sg-317c0457,EmrManagedMasterSecurityGroup=sg-307c0456 ^
+--service-role EMR_DefaultRole ^
+--enable-debugging ^
+--log-uri s3n://mfs-serenity-emr/logs/ ^
+--name 'TestCluster' ^
+--instance-groups InstanceCount=2,InstanceGroupType=CORE,InstanceType=d2.4xlarge InstanceCount=1,InstanceGroupType=MASTER,InstanceType=d2.4xlarge ^
+--configurations file://./config.json ^
+--region us-west-2

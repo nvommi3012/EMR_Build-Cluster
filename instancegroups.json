@@ -1,0 +1,15 @@
+[
+	{
+		"InstanceCount"					:5,
+		"InstanceGroupType"				:"CORE",
+		"InstanceType"					:"d2.4xlarge",
+		"Name"							:"Core instance group - 3"
+		},
+
+	{
+		"InstanceCount"					:1,
+		"InstanceGroupType"				:"MASTER",
+		"InstanceType"					:"r3.8xlarge",
+		"Name"							:"Master instance group - 1"
+	}
+]

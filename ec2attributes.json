@@ -1,0 +1,7 @@
+{
+	"KeyName"						:"nithin_keypair",
+	"InstanceProfile"				:"EMR_EC2_DefaultRole",
+	"SubnetId"						:"subnet-4f6e8416",
+	"EmrManagedSlaveSecurityGroup"	:"sg-317c0457",
+	"EmrManagedMasterSecurityGroup"	:"sg-307c0456"
+}

@@ -1,0 +1,112 @@
+[ 
+	{ 
+		"Classification":"hadoop-env", 
+		"Properties":{}, 
+		"Configurations": 
+		[ 
+			{ 
+				"Classification":"export", 
+				"Properties": 
+				{ 
+					"HADOOP_DATANODE_OPTS"			:"-Xmx16384m", 
+					"HADOOP_NAMENODE_OPTS"			:"-Xmx16384m", 
+					"HADOOP_SECONDARYNAMENODE_OPTS"	:"-Xmx16384m",
+					"HADOOP_HEAPSIZE"				:"16384",
+					"HADOOP_NAMENODE_HEAPSIZE"		:"16384",
+					"HADOOP_DATANODE_HEAPSIZE"		:"16384"
+				}, 
+				"Configurations":[] 
+			} 
+		] 
+	}, 
+
+
+	{ 
+		"Classification":"hbase-site", 
+		"Properties": 
+		{ 
+			"hbase.master.handler.count"					:"25",
+			"hbase.regionserver.handler.count"				:"64",
+
+			"hbase.master.port"								:"60000",
+			"hbase.master.info.port"						:"60010",
+			"hbase.regionserver.port"						:"60020",
+			"hbase.regionserver.info.port"					:"60030",
+
+			"hbase.replication"								:"true", 
+	
+			"hbase.coprocessor.regionserver.classes"		:"org.apache.hadoop.hbase.regionserver.LocalIndexMerger", 
+			"hbase.rpc.timeout"								:"600000", 
+			"hbase.regionserver.lease.period"				:"600000",
+			
+			"hbase.regionserver.handler.count"				:"40", 
+			"hbase.bucketcache.combinedcache.enabled"		:"true", 
+			"hbase.bucketcache.ioengine"					:"offheap", 
+			"hfile.block.cache.size"						:"0.3", 
+			"hbase.regionserver.global.memstore.size"		:"0.5",
+			"hbase.bucketcache.size"						:"63488",
+
+			"phoenix.query.timeoutMs"							:"6000000",
+			"phoenix.query.maxServerCacheBytes"					:"10485760000",
+			"phoenix.groupby.maxCacheSize"						:"10485760000",
+			"phoenix.coprocessor.maxServerCacheTimeToLiveMs"	:"6000000",
+			"phoenix.trace.frequency"							:"always"  
+		}, 
+		"Configurations":[] 
+	}, 
+
+
+		{ 
+		"Classification":"phoenix-hbase-site", 
+		"Properties": 
+		{ 
+			"phoenix.query.timeoutMs"							:"6000000",
+			"phoenix.query.maxServerCacheBytes"					:"10485760000",
+			"phoenix.groupby.maxCacheSize"						:"10485760000",
+			"phoenix.coprocessor.maxServerCacheTimeToLiveMs"	:"6000000",
+			"phoenix.trace.frequency"							:"always"
+		}, 
+		"Configurations":[] 
+	}, 
+
+
+	{ 
+		"Classification":"hdfs-site", 
+		"Properties": 
+		{ 
+			"dfs.datanode.handler.count":"12", 
+			"dfs.namenode.handler.count":"64" 
+		}, 
+		"Configurations":[] 
+	}, 
+
+
+	{ 
+		"Classification":"hbase-env", 
+		"Properties":{}, 
+		"Configurations": 
+		[ 
+			{ 
+				"Classification":"export", 
+				"Properties": 
+				{ 
+					"HBASE_HEAPSIZE"				:"32768", 
+					"HBASE_REGIONSERVER_OPTS"		:"-Xmx32768m", 
+					"HBASE_OFFHEAPSIZE"				:"64G", 
+					"HBASE_OPTS"					:"\"$HBASE_OPTS -XX:MaxDirectMemorySize=64G\""
+				}, 
+				"Configurations":[] 
+			} 
+		] 
+	}, 
+
+
+	{ 
+		"Classification":"zookeeper-config", 
+		"Properties": 
+		{ 
+			"maxClientCnxns":"1000" 
+		}, 
+		"Configurations":[] 
+	} 
+]
